@@ -1,0 +1,533 @@
+:root{
+    /* Colors */  
+    --color-text: #525252;
+    /* --color-border: #A9A9AA; */
+    --color-border: #c3c3c4;
+    --color-text: #525252;
+    --color-text-2: #fff;
+    --color-title: #7660AD;
+    --color-footer: hsl(257, 32%, 53%, .5);
+    --color-hover: #65c6ec;    
+    
+    /* Texts */
+    --font-text: "Karla", sans-serif;
+    --font-size-content: clamp(1rem, 1vw, 1.5rem); 
+}
+
+body{
+    font-family: var(--font-text); 
+    height: 100vh; 
+    display: flex;
+    flex-direction: column;
+    font-size: 1em;    
+    color: var(--color-text);
+}
+
+a{
+  text-decoration: none;
+  color: var(--color-text);
+}
+
+a:hover{
+  color: var(--color-hover);
+  font-weight: 700;
+}
+
+/* ----------------------------------------------------------------
+    Header
+---------------------------------------------------------------- */
+.header{
+  background-color: var(--color-text-2);
+  color: var(--color-title);
+  border-bottom: solid 1px var(--color-border);
+  font-size: clamp(2rem, 3vw, 2.5rem);  
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 5;
+}
+
+.header-one{  
+    
+    display: flex;
+    flex-direction:row;
+    justify-content:flex-end;
+    align-items: center;
+    padding: 1em;
+    
+  }
+
+.header-two{
+    background-color: #fff;     
+    padding: .25em;
+    display: flex;   
+    justify-content:center;    
+    align-items: center;
+    
+}
+/*.........................Menu.............................. */
+.menu{
+    font-size:  clamp(1.5rem, 1.5vw, 2rem);
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+    justify-content: center;
+    padding-left: 3em;
+    
+  
+    position: fixed;
+    top: 0;
+    right: -300px;
+    background-color: var(--color-text-2);
+    width: 300px;
+    height: 100%;
+    
+    z-index: 3;
+    transition: 0.5s;
+}
+.menu li{      
+    list-style-type:disc;   
+    font-size: clamp(1rem, 1vw, 1.5rem); 
+    margin-bottom: 2em;
+}
+
+/* -------logoPage in Menu -------------- */
+.menu .logoPage{
+  list-style-type:none;
+  width: 5rem;
+}
+
+
+/*.........................Menu-Icon.............................. */
+.hamburger{
+    
+    position: relative;
+    width: 25px;
+    height: 3px;
+    background:var(--color-border);  
+    cursor: pointer;
+    z-index: 5;
+    transition: .3s;
+  }
+  
+  .hamburger:before,
+  .hamburger:after{
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 3px;
+    right: 0;
+    background: var(--color-border);   
+    transition: .3s;
+  }
+  
+  .hamburger:before{
+    top: -8px;
+  }
+  .hamburger:after{
+    top: 8px;
+  }
+  
+  /* input[type="checkbox"] */
+  .toggleMenu{
+    position: absolute;
+    z-index: 6;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    margin-top: -10px;
+    margin-left: 0px;
+    opacity: 0;
+  }
+  
+  .hamburger, .toggleMenu{
+    display: block;
+  }
+  
+  .navigation input:checked~.hamburger{
+    background: transparent;
+  }
+  
+  .navigation input:checked~.hamburger:before{
+    top: 0;
+    transform: rotate(-45deg);
+    width: 30px;
+  }
+  
+  .navigation input:checked~.hamburger:after{
+    top: 0;
+    transform: rotate(45deg);
+    width: 30px;
+  }
+  
+  .navigation input:checked~.menu{
+    right: 0;
+    box-shadow: -20px 0 10px rgb(171, 177, 178, .2);
+  }
+
+/*.........................Accordion - Projects............................. */
+
+.accordion {
+  position: relative;
+}
+  
+.aHeader .question {    
+  display: flex;    
+  align-items: center;
+  width: 100%;        
+  padding: 0;
+  border: 0;  
+  
+  text-align: center;
+  font-size: clamp(1rem, 1vw, 1.5rem);  
+  font-family: var(--font-text);      
+  color: var(--color-text);
+  background-color: var(--color-text-2);  
+  color: var(--color-text);
+}
+
+
+.fa-chevron-down:hover, 
+.fa-chevron-right:hover{
+  color: var(--color-title);
+}
+
+.fa-chevron-down, .fa-chevron-right {
+  color: var(--color-title);
+  padding-left: .25em;
+  width: 1rem;
+  font-weight: 900;
+  font-size: clamp(.8rem, 1vw, 1.5rem);
+}
+
+.fa-chevron-right {
+  display: block;
+}
+.fa-chevron-down {
+  display: none;
+}
+.accordion.isOpen .fa-chevron-down {
+  display: block;
+}
+.accordion.isOpen .fa-chevron-right {
+  display: none;
+}      
+  
+.aContent {
+  height: 0;
+  overflow: hidden;
+  transition: height 0.5s ease-out;        
+}
+  
+.aInner li{         
+  font-size: 1em;
+  padding-top: .5em;
+  padding-bottom: .25em;
+  margin-left: 1.5em;
+  margin-bottom: .5em;
+  text-align:left;
+   
+}
+
+
+.question:hover{
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--color-hover);
+}
+
+
+
+/* ----------------------------------------------------------------
+    Aside
+---------------------------------------------------------------- */
+.aside{
+    display: none;    
+ }
+
+/* ----------------------------------------------------------------
+    Main - Index page
+---------------------------------------------------------------- */
+.mainAbout{
+    font-size: var(--font-size-content);  
+    text-align: left;
+    line-height: 1.5; 
+  
+    display: flex;
+    flex-direction: row;
+ }
+
+.article{
+    max-width: 900px;
+    padding: 1em;
+}
+.article h2{
+    color: var(--color-title);
+    font-size: clamp(2em, 3vw, 2em);
+    border-bottom: dashed 2px var(--color-footer);
+    margin-bottom: 1em;
+}
+
+.article p{
+    margin-bottom: 1em;
+}
+
+
+.article h3{
+  color: var(--color-title);
+  font-size: clamp(1.25em, 3vw, 1.25em);
+  font-weight: bold;
+}
+
+.article ul{
+  list-style-position: outside;  
+  list-style-type:none;
+  padding-left: 1em; 
+}
+
+.title{
+  list-style-type:disc; 
+  font-style: italic;  
+}
+.list2{list-style-type:disc; }
+
+.note{font-style: italic; }
+
+/* -------Button-------------- */
+
+.dwnld-btn{
+  background-color: var(--color-footer);
+  border: none;
+  padding: .25em .75em;
+  font-family: var(--font-text);
+  color: var(--color-title);
+  font-size: clamp(1rem, 1vw, 1.5rem);
+  cursor: pointer;
+}
+
+.dwnld-btn::after{
+  content: '\f15b';
+  display: inline-block;
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  color: var(--color-title);    
+  padding-left: .25em;
+}
+
+.dwnld-btn:hover{
+  background-color: var(--color-title);
+  color: var(--color-text-2);
+}
+
+.dwnld-btn:hover::after{
+  color: var(--color-text-2);
+}
+
+
+/* -------Style Capital Letter-------------- */
+.drop-cap::first-letter{
+  -webkit-initial-letter: 3;
+          initial-letter: 3;
+  color: var(--color-footer);
+  font-weight: bold;
+  margin-right: .25em;
+  float: left;
+  font-family: "Kaisei Decol", serif;
+}
+
+/* ----------------------------------------------------------------
+    Main - Contact
+---------------------------------------------------------------- */
+
+.fa-regular, 
+.fa-brands{
+  color: var(--color-title);
+  margin-right: .5em;
+}
+
+.contactList{
+  line-height: 2;
+  font-size: var(--font-size-content);
+}
+
+/* ----------------------------------------------------------------
+    Footer
+---------------------------------------------------------------- */
+.footer{
+    background-color: var(--color-footer);
+    color: var(--color-text-2);
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    padding-top: .25em;
+    padding-bottom: .25em;
+    font-size: clamp(.5rem, .8vw, 1rem);  
+    line-height: 1.25;
+    
+}
+
+
+
+/* ============================================================================= 
+SCREEN MIN 800 - Tablet size
+============================================================================= */
+@media screen and (min-width: 800px){
+    /* ----------------------------------------------------------------
+    Body
+    ---------------------------------------------------------------- */
+    body{
+        flex-direction: unset;
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        
+    }
+
+    header, footer{
+        grid-column: 1 / span 2;
+    }
+   
+
+    /* ----------------------------------------------------------------
+    Header
+    ---------------------------------------------------------------- */
+    .header-one{display: none;}   
+
+    .header{
+        height: 10vh;
+        display: flex;
+        justify-content: center;    
+        align-items: center; 
+        padding: 1em;  
+    }
+
+    /* ----------------------------------------------------------------
+    Aside
+    ---------------------------------------------------------------- */
+
+    .aside{
+      height: 130vh;
+      display: block;
+      background-color: var(--color-text-2); 
+      border-right: solid 1px var(--color-border);
+      padding-top: 2em;
+      
+    }
+
+    .aside-text{      
+      display: flex;
+      justify-content: center;  
+     
+    }
+
+    .aside-list li{      
+      list-style-type:disc;        
+      font-size: clamp(1rem, 1vw, 1.5rem);  
+      
+      color: var(--color-title);
+      margin-bottom: 2em;
+    }
+
+    /* -------logoPage in Menu -------------- */
+    .aside-list .logoPage{
+      list-style-type:none;
+      width: 5rem;
+      height: auto;
+    }
+
+    /*.........................Accordion - Projects............................. */
+
+    .accordion {
+      position: relative;
+    }
+  
+    .aHeader-aside .question {    
+      display: flex;    
+      align-items: center;
+      width: 100%;        
+      padding: 0;
+      border: 0;  
+              
+      text-align: center;
+      font-size: clamp(1rem, 1vw, 1.5rem); 
+      font-family: var(--font-text);        
+      color: var(--color-text);
+      background-color: var(--color-text-2);      
+      color: var(--color-text);
+    }
+
+
+    .fa-chevron-down:hover, 
+    .fa-chevron-right:hover{
+      color: var(--color-title);
+    }
+
+    .fa-chevron-down, .fa-chevron-right {
+      color: var(--color-title);
+      padding-left: .25em;
+      width: 1rem;
+      font-weight: 900;
+      font-size: clamp(.8rem, 1vw, 1.5rem);
+    }
+
+    .fa-chevron-right {
+      display: block;
+    }
+    .fa-chevron-down {
+      display: none;
+    }
+    .accordion.isOpen .fa-chevron-down {
+      display: block;
+    }
+    .accordion.isOpen .fa-chevron-right {
+      display: none;
+    }      
+      
+    .aContent {
+      height: 0;
+      overflow: hidden;
+      transition: height 0.5s ease-out;        
+    }
+      
+    .aInner li{         
+      /* padding-top: .75rem; */
+      font-size: 1em;
+      padding-top: .25em;
+      padding-bottom: .25em;
+      margin-left: 1.5em;
+      margin-bottom: .5em;
+      text-align:left;    
+    }
+
+    .question:hover{
+      cursor: pointer;
+      font-weight: 700;
+      color: var(--color-hover);
+    }
+    
+     
+    /* ----------------------------------------------------------------
+    Main
+    ---------------------------------------------------------------- */
+    .main{height: 130vh; }
+    .mainAbout{height: 130vh; }
+    .article{padding: 1.5em;}
+
+    /* ----------------------------------------------------------------
+    Footer
+    ---------------------------------------------------------------- */
+    
+    .footer{height: 5vh;}
+
+
+}
+/* ============================================================================= 
+SCREEN MIN 1200 - Desktop size
+============================================================================= */
+@media screen and (min-width: 1200px){
+    /* ----------------------------------------------------------------
+    Aside
+    ---------------------------------------------------------------- */
+    
+}
